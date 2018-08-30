@@ -1,17 +1,12 @@
-.App {
-  text-align: center;
+// TODO: convert js-css to scss?
+.app {
+  display: flex;
 
-  &-header {
-    background-color: #222;
-    padding: 20px;
-    color: white;
+  &-company {
+    margin: 0 auto 0 15px;
   }
 
-  &-title {
-    font-size: 1.5em;
-  }
-
-  &-intro {
-    font-size: large;
+  &-toolbar-header {
+    //background: pink;
   }
 }
