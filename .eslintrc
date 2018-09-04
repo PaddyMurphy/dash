@@ -1,6 +1,10 @@
 {
-  "extends": "react-app",
+  "extends": [
+  "react-app",
+    "plugin:flowtype/recommended"
+  ],
   "plugins": [
+    "flowtype",
     "prettier",
     "jsx-a11y",
   ],

@@ -1,6 +1,15 @@
+import * as types from 'actions/types';
+
 export const simpleAction = () => dispatch => {
   dispatch({
-    type: 'SIMPLE_ACTION',
-    payload: {result_of_simple_action: true},
+    type: types.SIMPLE_ACTION,
+    payload: {results: true},
+  });
+};
+
+export const fetchDeals = () => dispatch => {
+  dispatch({
+    type: types.FETCH_DEALS,
+    payload: {notUndefined: true},
   });
 };

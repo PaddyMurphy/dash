@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import * as actions from 'actions/Actions.js';
+import * as actions from 'actions/actions';
 import {withStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';

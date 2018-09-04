@@ -1,3 +1,4 @@
+// @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -5,15 +6,35 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import SimpleLineChart from 'components/SimpleLineChart';
 import SimpleTable from 'components/SimpleTable';
-import * as actions from 'actions/Actions.js';
+import * as actions from 'actions/actions';
 import {styles} from 'styles/AppStyles';
 
-export class Dashboard extends Component {
-  simpleAction = event => {
+type Props = {
+  simpleAction?: Function,
+};
+
+export class Dashboard extends Component<Props> {
+  constructor() {
+    super();
+
+    this.state = {
+      deals: [],
+    };
+  }
+
+  componentDidMount() {
+    this.props.fetchDeals();
+    // this.setState({
+    //   deals: ,
+    // });
+  }
+
+  simpleAction = () => {
     this.props.simpleAction();
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className="dashboard" style={{marginTop: '60px'}}>
         <Typography variant="display1" gutterBottom>
