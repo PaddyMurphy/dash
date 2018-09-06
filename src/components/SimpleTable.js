@@ -6,8 +6,8 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import EditIcon from '@material-ui/icons/Edit';
 import Paper from '@material-ui/core/Paper';
-import {data} from 'reducers/mockData';
 
 const styles = {
   root: {
@@ -20,7 +20,8 @@ const styles = {
 };
 
 function SimpleTable(props) {
-  const {classes} = props;
+  if (!props.deals) return false;
+  const {classes, deals} = props;
 
   return (
     <Paper className={classes.root}>
@@ -30,12 +31,12 @@ function SimpleTable(props) {
             <TableCell>Name</TableCell>
             <TableCell numeric>%</TableCell>
             <TableCell numeric>maximum</TableCell>
-            <TableCell numeric>perk</TableCell>
-            <TableCell numeric>expires</TableCell>
+            <TableCell>perk</TableCell>
+            <TableCell>expires</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.deals.map(n => {
+          {deals.map(n => {
             return (
               <TableRow key={n.id}>
                 <TableCell component="th" scope="row">
@@ -43,8 +44,8 @@ function SimpleTable(props) {
                 </TableCell>
                 <TableCell numeric>{n.percent}</TableCell>
                 <TableCell numeric>{n.maximum}</TableCell>
-                <TableCell numeric>{n.perk}</TableCell>
-                <TableCell numeric>{n.expires}</TableCell>
+                <TableCell>{n.perk}</TableCell>
+                <TableCell>{n.expires}</TableCell>
               </TableRow>
             );
           })}

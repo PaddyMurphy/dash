@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import Button from '@material-ui/core/Button';
+//import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import SimpleLineChart from 'components/SimpleLineChart';
 import SimpleTable from 'components/SimpleTable';
@@ -14,19 +14,14 @@ type Props = {
 };
 
 export class Dashboard extends Component<Props> {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    this.state = {
-      deals: [],
-    };
-  }
+  //   this.state = {};
+  // }
 
   componentDidMount() {
     this.props.fetchDeals();
-    // this.setState({
-    //   deals: ,
-    // });
   }
 
   simpleAction = () => {
@@ -34,7 +29,8 @@ export class Dashboard extends Component<Props> {
   };
 
   render() {
-    console.log(this.state);
+    const deals = this.props.reducer.deals;
+
     return (
       <div className="dashboard" style={{marginTop: '60px'}}>
         <Typography variant="display1" gutterBottom>
@@ -46,7 +42,6 @@ export class Dashboard extends Component<Props> {
 
         <Typography component="div" className={styles.chartContainer}>
           <SimpleLineChart />
-          <Button onClick={this.simpleAction}>Test redux action</Button>
         </Typography>
 
         <Typography variant="headline" gutterBottom>
@@ -54,7 +49,7 @@ export class Dashboard extends Component<Props> {
         </Typography>
 
         <div className={styles.tableContainer}>
-          <SimpleTable />
+          <SimpleTable deals={deals} />
         </div>
       </div>
     );

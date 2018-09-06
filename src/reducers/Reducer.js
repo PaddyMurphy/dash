@@ -1,17 +1,23 @@
 import {data} from 'reducers/mockData';
 
-export default (state = {}, action) => {
+const INITIAL_STATE = {
+  deals: [],
+};
+
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'SIMPLE_ACTION':
       console.log('SIMPLE_ACTION', action.payload);
       return {
+        ...state,
         result: action.payload,
       };
 
     case 'FETCH_DEALS':
-      console.log('FETCH_DEALS');
+      console.log('FETCH_DEALS', data.deals);
       return {
-        result: data.deals,
+        ...state,
+        deals: data.deals,
       };
     default:
       return state;
